@@ -1,0 +1,36 @@
+<html>
+<head th:replace="~{base::head}">
+
+</head>
+
+<body>
+	<div th:replace="~{base::logo}"></div>
+	<div class="container ">
+		<div th:replace="~{base::titulo('Login')}"></div>
+
+
+		<div class="card mb-3 mt-3">
+
+			<form th:action="@{/login}" class="mb-3" method="post">
+				<div class="form-group">
+					<label for="usuario">Usuario</label> 
+					<input class="form-control mb-3 mt-3" name="username" placeholder="Usuario" />
+				</div>
+				<div class="form-group">
+					<label for="senha">Senha</label> 
+					<input type="password" name="password" class="form-control mb-3 mt-3" placeholder="Senha" />
+				</div>
+
+				<button class="btn btn-primary mt-3" type="submit">Login</button>
+
+				<div th:if="${param.error}">Dados invalidos.</div>
+				<div th:if="${param.logout}">You have been logged out.</div>
+
+
+			</form>
+
+		</div>
+	</div>
+</body>
+
+</html>
