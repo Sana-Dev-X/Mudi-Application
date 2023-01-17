@@ -31,7 +31,7 @@ public class PedidoController {
 			
 			requisicao.setErro("Erro");
 			
-			return "pedido/formulario";
+			return "/pedido/formulario";
 		}
 
 		Pedido pedido = requisicao.toPedido();

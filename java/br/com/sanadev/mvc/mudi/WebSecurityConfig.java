@@ -19,10 +19,13 @@ public class WebSecurityConfig {
 		http
 		//.authorizeHttpRequests().anyRequest().authenticated().and()
 		.authorizeHttpRequests(aut->{aut.anyRequest().authenticated();})
-		
 		.formLogin().loginPage("/login").permitAll();
 		
-		 
+		http.logout(logout -> logout
+				.logoutUrl("/logout")
+				.logoutSuccessUrl("/home")
+				.invalidateHttpSession(true));
+		
      return http.build();
 	}
 

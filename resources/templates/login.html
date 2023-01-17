@@ -4,7 +4,17 @@
 </head>
 
 <body>
-	<div th:replace="~{base::logo}"></div>
+	<div class="logo-container mb-3 p-3 d-flex justify-content-between">
+		<span class="logo">mudi</span> <span class="mt-3">
+			<div>
+				<a class="text-light" href="/login">login</a>
+			</div>
+		</span>
+	</div>
+
+	<div th:fragment="titulo(valor)" class="jumbotron">
+		<h1 class="display-4 mb-0" th:text="${valor}"></h1>
+	</div>
 	<div class="container ">
 		<div th:replace="~{base::titulo('Login')}"></div>
 
@@ -13,12 +23,13 @@
 
 			<form th:action="@{/login}" class="mb-3" method="post">
 				<div class="form-group">
-					<label for="usuario">Usuario</label> 
-					<input class="form-control mb-3 mt-3" name="username" placeholder="Usuario" />
+					<label for="usuario">Usuario</label> <input
+						class="form-control mb-3 mt-3" name="username"
+						placeholder="Usuario" />
 				</div>
 				<div class="form-group">
-					<label for="senha">Senha</label> 
-					<input type="password" name="password" class="form-control mb-3 mt-3" placeholder="Senha" />
+					<label for="senha">Senha</label> <input type="password"
+						name="password" class="form-control mb-3 mt-3" placeholder="Senha" />
 				</div>
 
 				<button class="btn btn-primary mt-3" type="submit">Login</button>
